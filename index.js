@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios').default;
+const moment = require('moment');
 
 console.log(`⚡️ Starting Rent Map`);
 console.log(`API KEY: ${process.env.DOMAIN_API_KEY}`);
@@ -30,6 +31,9 @@ const params = {
   minBedrooms: 2,
   minBathrooms: 1,
   minCarspaces: 1,
+  minPrice: 400,
+  maxPrice: 600,
+  listedSince: moment().subtract(12, 'hours').format(),
   locations: [
     {
       state: 'SA',
